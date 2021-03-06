@@ -69,8 +69,8 @@ class Particle{
 class ParticleField{
     constructor(canv, w, h, dpr, s, sp, r, count, speed, colors, bg, start, stats){
         this.canv = canv;
-        this.w = w;
-        this.h = h;
+        this.w = w ;
+        this.h = h ;
         this.dpr = dpr;
         this.s = s; // square side length
         this.sp = sp;// multiplier for spacing between squares
@@ -134,7 +134,7 @@ class ParticleField{
             }
             this.c.beginPath();
             this.c.fillStyle = this.particles[n].color;
-            styledRect2(this.c, this.particles[n].x, this.particles[n].y, this.s);
+            styledRect(this.c, this.particles[n].x, this.particles[n].y, this.s);
             // c.fillRect(particles[n].x, particles[n].y, s, s);
             // c.closePath();
         }
@@ -162,7 +162,7 @@ class ParticleField{
                             this.particles[this.particles.length-1].dir_x = default_directions[2+p][0];
                             this.particles[this.particles.length-1].dir_y = default_directions[2+p][1]
                             this.c.fillStyle = this.particles[this.particles.length-1].c;
-                            roundRect(this.c, this.particles[this.particles.length-1].x, this.particles[this.particles.length-1].y, this.s);
+                            styledRect(this.c, this.particles[this.particles.length-1].x, this.particles[this.particles.length-1].y, this.s);
                             color == this.colors[0] ? this.green++ : this.blue++;
                         }
                         
@@ -214,7 +214,7 @@ class ParticleField{
             let color = this.colors[Math.floor(Math.random() * this.colors.length)];
             this.particles.push(new Particle(x, y, color, this.s, this.s, this.w, this.h));
             this.c.fillStyle = this.particles[this.particles.length-1].color;
-            roundRect(this.c, this.particles[this.particles.length-1].x, this.particles[this.particles.length-1].y, this.s);
+            styledRect(this.c, this.particles[this.particles.length-1].x, this.particles[this.particles.length-1].y, this.s);
         }
         
         
@@ -292,11 +292,6 @@ const styledRect2 = (c, x, y, s)=>{
     c.arc(x+r, y+s-r, r, 0, 2*Math.PI, false);
     c.closePath();
     c.fill();
-
-    c.beginPath();
-    c.arc(x+s/2, y+s/2, r, 0, 2*Math.PI, false);
-    c.closePath();
-    c.fill();
 }
 
 
@@ -306,9 +301,9 @@ initialize = ()=>{
     w = window.innerWidth;
     h = window.innerHeight;
     dpr = 2;
-    s = 12;
-    sp = 1;
-    r = 5;
+    s = 10;
+    sp = 2;
+    r = 3;
     count = 0;
     speed = 100;
     let bg = "rgba(0, 0, 0, 0.3)";
