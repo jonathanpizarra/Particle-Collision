@@ -20,5 +20,23 @@
     bottom: 0;
     height:30px;
     font-size: 20px;
-    color:white;
+    color:#ffff00;
+}
+
+#heading{
+    position: absolute;
+    top:0;
+    right:20px;
+    font-size: 24px;
+    color:#ffff00;
+}
+
+.green{
+    color:#00ff00;
+}
+.red{
+    color:#ff0000;
+}
+.blue{
+    color:#0000ff;
 }
